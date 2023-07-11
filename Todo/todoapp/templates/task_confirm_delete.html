@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+        margin: 0;
+        padding:0;
+        height:100vh;
+        background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+        }
+        .container{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:450px;
+        background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+        border-radius: 15px;
+        height:150px;
+        padding:5px 25px;
+        }
+        a{
+        text-decoration:none;
+        text-align:centre;
+        float:right;}
+        input{
+        background:red;
+        border:none;
+        outline:none;
+        width:80px;
+        padding:5px;}
+
+        </style>
+</head>
+<body>
+<div class="container">
+<form method="post">
+  {% csrf_token %}
+  <p>Are you sure you want to delete this task? {{task}}</p>
+  <input type="submit" value="Delete">
+  <a href="{% url 'tasks' %}">Go Back</a>
+</form>
+    </div>
+
+</body>
+</html>

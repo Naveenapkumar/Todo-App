@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+       <style> body{
+     margin:0;
+     padding:0;
+     height:100vh;
+     background-color: #fbe3e8;
+     }
+     .container{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:750px;
+        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 15px;
+        height:450px;}
+        form{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;}
+        h1{
+      text-align:center;
+      color:white;}
+      button{
+       background-color:red;
+      border:none;
+      outline:none;
+      width:100px;
+      height:35px;
+      border-radius:10px;
+      margin-left:320px;
+      margin-top:30px;}
+      button:hover{
+      background-color:grey;}
+        </style>
+</head>
+<body>
+<div class="container">
+<h1>Task Details</h1>
+<h1>{{tasks}}</h1>
+<form method="post" action="">
+  <h4>Task:{{tasks}}</h4>
+    <h4>Description:{{tasks.description}}</h4>
+  {% if tasks.complete %} Completed {% else %} Pending {% endif %}
+
+</form>
+    <a href="{% url 'tasks' %}"><button>Go Back</button></a>
+</div>
+</body>
+</html>

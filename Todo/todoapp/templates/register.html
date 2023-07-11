@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    {% load static %}
+    <style>body{background-image: url('{% static 'images/pencil.jpg' %}');
+     .container{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:500px;
+        background-color:#ffa8B6;
+        border-radius: 15px;
+        height:450px;}
+
+       .container form{
+       padding-left:20px;}
+
+
+    .bttn{
+    background:red;
+        border:none;
+        outline:none;
+        width:80px;
+        padding:5px;
+        border-radius:10px;}
+        .bttn:hover{
+        background-color:grey;}
+
+</style>
+</head>
+<body>
+<div class="container">
+<h1 style="padding-left:180px;" class="register">Register</h1>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input style="margin-left:180px;"type="submit" value="Register" class="bttn">
+</form>
+<p style="padding-left:150px;">Already have an account?<a href="{% url 'login' %}">Login</a></p>
+</div>
+</body>
+</html>

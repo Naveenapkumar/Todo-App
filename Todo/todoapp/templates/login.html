@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+        margin: 0;
+        padding:0;
+        height:100vh;
+        background-image: url('{% static 'images/pencil.jpg' %}');
+        opacity:0.8;
+        }
+        .container{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        width:450px;
+        background-color:#ffa8B6;
+        border-radius: 15px;
+        height:350px;
+        }
+        h1{
+        text-align:center;
+        font-weight:600;}
+        form{
+        padding:0 30px;}
+        p{
+        padding:10px 30px;
+        text-align:center;}
+        .login{
+        width:30%;
+        height:40px;
+        margin:0 150px;
+        border-radius:10px;
+        border:0;
+        font-weight: bold;
+        background-color: #ff004f;}
+        .login:hover{
+        background-color:grey;}
+        a{text-decoration:None;}
+
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Login</h1>
+<form method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Login" class="login">
+
+</form>
+<p>Don't have an account?<a href="{% url 'register' %}"> Register</a></p>
+</div>
+</body>
+</html>
